@@ -16,7 +16,7 @@
       </javaTypeResolver>
 
       <javaModelGenerator targetPackage="com.example.mybatisgenerator.model.generated" targetProject="/Users/tetsu/OneDrive/tutorial/mybatisgenerator/src/main/java"/>
-      <sqlMapGenerator targetPackage="mapper.generated"  targetProject="/Users/tetsu/OneDrive/tutorial/mybatisgenerator/src/main/java"/>
+      <sqlMapGenerator targetPackage="com.example.mybatisgenerator.mapper.generated"  targetProject="/Users/tetsu/OneDrive/tutorial/mybatisgenerator/src/main/resources"/>
       <javaClientGenerator type="XMLMAPPER" targetPackage="com.example.mybatisgenerator.mapper.generated" targetProject="/Users/tetsu/OneDrive/tutorial/mybatisgenerator/src/main/java"/>
       <table tableName="sample_table" />
     </context>
