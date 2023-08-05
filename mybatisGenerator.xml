@@ -3,13 +3,21 @@
  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
  <generatorConfiguration>
    <context id="sample" targetRuntime="MyBatis3">
-	  <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
-    <plugin type="org.mybatis.generator.plugins.MapperAnnotationPlugin"/>
-    <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver" connectionURL="jdbc:mysql://localhost/test" userId="test" password="test"/>
+     <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+     <plugin type="org.mybatis.generator.plugins.MapperAnnotationPlugin"/>
+     <commentGenerator>
+      <property name="suppressDate" value="true" />
+     </commentGenerator>
 
-    <javaModelGenerator targetPackage="com.example.mybatisgenerator.model.generated" targetProject="/Users/tetsu/OneDrive/tutorial/mybatisgenerator/src/main/java"/>
-    <sqlMapGenerator targetPackage="mapper.generated"  targetProject="/Users/tetsu/OneDrive/tutorial/mybatisgenerator/src/main/java"/>
-    <javaClientGenerator type="XMLMAPPER" targetPackage="com.example.mybatisgenerator.mapper.generated" targetProject="/Users/tetsu/OneDrive/tutorial/mybatisgenerator/src/main/java"/>
-    <table tableName="sample_table" />
-  </context>
-</generatorConfiguration>
+     <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver" connectionURL="jdbc:mysql://localhost/test" userId="test" password="test"/>
+
+     <javaTypeResolver>
+       <property name="useJSR310Types" value="true"/>
+      </javaTypeResolver>
+
+      <javaModelGenerator targetPackage="com.example.mybatisgenerator.model.generated" targetProject="/Users/tetsu/OneDrive/tutorial/mybatisgenerator/src/main/java"/>
+      <sqlMapGenerator targetPackage="mapper.generated"  targetProject="/Users/tetsu/OneDrive/tutorial/mybatisgenerator/src/main/java"/>
+      <javaClientGenerator type="XMLMAPPER" targetPackage="com.example.mybatisgenerator.mapper.generated" targetProject="/Users/tetsu/OneDrive/tutorial/mybatisgenerator/src/main/java"/>
+      <table tableName="sample_table" />
+    </context>
+  </generatorConfiguration>
