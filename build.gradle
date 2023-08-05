@@ -15,6 +15,7 @@ configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
+	mybatisGenerator
 }
 
 repositories {
@@ -22,6 +23,9 @@ repositories {
 }
 
 dependencies {
+	mybatisGenerator group: 'org.mybatis.generator', name: 'mybatis-generator-core', version: '1.4.2'
+	mybatisGenerator group: 'com.mysql', name: 'mysql-connector-j', version: '8.1.0'
+
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'com.mysql:mysql-connector-j:8.1.0'
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.2'
@@ -34,4 +38,11 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+task mybatisGenerator {
+        doLast {
+            ant.taskdef(name: 'mbgenerator', classname: 'org.mybatis.generator.ant.GeneratorAntTask', classpath: configurations.mybatisGenerator.asPath)
+            ant.mbgenerator(overwrite: true, configfile: projectDir.getAbsolutePath() + '/mybatisGenerator.xml', verbose: true)
+}
 }
